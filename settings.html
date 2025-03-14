@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbeam - Settings</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .dashboard-header {
+      background-color: #43a047;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .settings-nav {
+      display: flex;
+      gap: 10px;
+    }
+    .btn, .btn-logout {
+      background-color: #388e3c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover, .btn-logout:hover {
+      background-color: #2e7d32;
+    }
+    .btn.active {
+      background-color: #2e7d32;
+    }
+    .settings-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    .form-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    .form-group button {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      color: white;
+      background-color: #388e3c;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .form-group button:hover {
+      background-color: #2e7d32;
+    }
+    .error-message, .success-message {
+      color: red;
+      display: none;
+      margin-top: -10px;
+      margin-bottom: 10px;
+    }
+    .success-message {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="welcome-msg">
+      <span id="welcomeMessage"></span>
+    </div>
+    <nav class="settings-nav">
+      <a href="dashboard.html" class="btn">Dashboard</a>
+      <a href="settings.html" class="btn active">Settings</a>
+      <button id="logoutBtn" class="btn-logout">Logout</button>
+    </nav>
+  </header>
+  <div class="settings-container">
+    <div class="form-container">
+      <h2>Account Settings</h2>
+      <form id="settingsForm">
+        <div class="form-group">
+          <label for="currentUsername">Current Username:</label>
+          <input type="text" id="currentUsername" disabled>
+        </div>
+        <div class="form-group">
+          <label for="newUsername">New Username:</label>
+          <input type="text" id="newUsername" placeholder="Leave blank to keep current">
+          <div id="usernameError" class="error-message">Username is already taken.</div>
+        </div>
+        <div class="form-group">
+          <label for="newDisplayName">New Display Name:</label>
+          <input type="text" id="newDisplayName" placeholder="Leave blank to keep current">
+        </div>
+        <div class="form-group">
+          <label for="newEmail">New Email:</label>
+          <input type="email" id="newEmail" placeholder="Leave blank to keep current">
+        </div>
+        <div class="form-group">
+          <label for="newPassword">New Password:</label>
+          <input type="password" id="newPassword" placeholder="Leave blank to keep current">
+        </div>
+        <div class="form-group">
+          <label for="confirmNewPassword">Confirm New Password:</label>
+          <input type="password" id="confirmNewPassword" placeholder="Leave blank to keep current">
+          <div id="passwordError" class="error-message">New passwords do not match.</div>
+        </div>
+        <div id="settingsSuccess" class="success-message">Settings updated successfully.</div>
+        <div class="form-group">
+          <button type="submit">Update Settings</button>
+        </div>
+      </form>
+      <form id="deleteAccountForm">
+        <div class="form-group">
+          <button type="button" id="deleteAccountBtn">Delete Account</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

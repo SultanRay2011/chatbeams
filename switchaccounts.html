@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbeam - Switch Accounts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .form-container h2 {
+      margin-bottom: 20px;
+      color: #43a047;
+    }
+    .form-container select, .form-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 1em;
+      color: white;
+      background-color: #388e3c;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .form-container button:hover {
+      background-color: #2e7d32;
+    }
+    .error-message {
+      color: red;
+      display: none;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Switch Accounts</h2>
+    <form id="switchAccountForm">
+      <select id="accountSelect" required>
+        <!-- User options will be injected here -->
+      </select>
+      <button type="submit">Switch Account</button>
+      <button type="button" id="removeAccountButton">Remove Account</button>
+    </form>
+    <h2>Add New Account</h2>
+    <form id="addAccountForm">
+      <input type="text" id="newUsername" placeholder="Enter new username" required>
+      <input type="password" id="newPassword" placeholder="Enter new password" required>
+      <div id="usernameError" class="error-message">Username already exists.</div>
+      <div id="passwordError" class="error-message">Password must be at least 6 characters long.</div>
+      <button type="submit">Add Account</button>
+    </form>
+    <div id="accountSuccess" style="display:none;color:green;">Account added successfully.</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
