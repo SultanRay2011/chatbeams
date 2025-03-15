@@ -130,11 +130,21 @@
     .popup-content button:hover {
       background-color: #2e7d32;
     }
+    .account-info {
+      margin-bottom: 20px;
+      font-size: 1.2em;
+      color: #333;
+    }
+    .account-info span {
+      font-weight: bold;
+      color: #43a047;
+    }
   </style>
 </head>
 <body>
   <div class="premium-container">
     <h1 class="premium-title">Get Chatbeams Premium</h1>
+    <p class="account-info">Logged in as: <span id="username"></span></p>
     <p class="premium-description">Upgrade to Chatbeams Premium and enjoy exclusive features designed to enhance your communication experience.</p>
     <div class="premium-features">
       <h3>Premium Features:</h3>
@@ -153,8 +163,8 @@
     <div class="popup-content">
       <h3>Enter Card Details</h3>
       <form id="paymentForm">
-        <label for="NameonCard">Name On Card</label>
-        <input type="text" id="nameoncard" name"nameoncard" placeholder"Name On Card" required>
+        <label for="nameoncard">Name On Card</label>
+        <input type="text" id="nameoncard" name="nameoncard" placeholder="Name On Card" required>
         <label for="cardNumber">Card Number</label>
         <input type="text" id="cardNumber" name="cardNumber" required>
         <label for="expiryDate">Expiry Date</label>
@@ -167,9 +177,14 @@
   </div>
 
   <script>
+    // Assume we have the username stored in a variable
+    const username = "SultanRay2011"; // This should be dynamically set based on actual logged-in user
+    document.getElementById('username').textContent = username;
+
     function openPopup() {
       document.getElementById('popup').style.display = 'flex';
     }
+
     document.getElementById('paymentForm').addEventListener('submit', function(event) {
       event.preventDefault();
       alert('Payment submitted!');
