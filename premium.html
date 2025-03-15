@@ -1,1 +1,161 @@
-<DOCTYPE HTML!>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbeams - Premium</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    .premium-container {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: auto;
+    }
+    .premium-title {
+      font-size: 2.5em;
+      color: #43a047;
+      margin-bottom: 20px;
+    }
+    .premium-description {
+      font-size: 1.2em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .premium-features {
+      text-align: left;
+      max-width: 600px;
+      margin: auto;
+    }
+    .premium-features h3 {
+      font-size: 1.5em;
+      color: #43a047;
+      margin-bottom: 10px;
+    }
+    .premium-features ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .premium-features ul li {
+      font-size: 1.2em;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .get-premium-button {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .get-premium-button:hover {
+      background-color: #0056b3;
+    }
+    /* Popup container */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    /* Popup content */
+    .popup-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      max-width: 400px;
+      width: 100%;
+    }
+    .popup-content h3 {
+      margin-top: 0;
+    }
+    .popup-content label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .popup-content input {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .popup-content button {
+      padding: 10px 20px;
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .popup-content button:hover {
+      background-color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+  <div class="premium-container">
+    <h1 class="premium-title">Get Chatbeams Premium</h1>
+    <p class="premium-description">Upgrade to Chatbeams Premium and enjoy exclusive features designed to enhance your communication experience.</p>
+    <div class="premium-features">
+      <h3>Premium Features:</h3>
+      <ul>
+        <li>Ad-free experience</li>
+        <li>Priority customer support</li>
+        <li>Access to exclusive themes</li>
+        <li>Increased storage for media files</li>
+        <li>Early access to new features</li>
+      </ul>
+    </div>
+    <button class="get-premium-button" onclick="openPopup()">Get Premium</button>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h3>Enter Card Details</h3>
+      <form id="paymentForm">
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" name="cardNumber" required>
+        <label for="expiryDate">Expiry Date</label>
+        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" name="cvv" required>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openPopup() {
+      document.getElementById('popup').style.display = 'flex';
+    }
+    document.getElementById('paymentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Payment submitted!');
+      document.getElementById('popup').style.display = 'none';
+    });
+  </script>
+</body>
+</html>
