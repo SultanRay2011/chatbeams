@@ -6,40 +6,44 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background-color: #f0f0f0;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       height: 100vh;
     }
     .premium-container {
       text-align: center;
-      padding: 50px 20px;
+      padding: 40px 30px;
       background-color: #ffffff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      margin: auto;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      max-width: 600px;
+      width: 100%;
+      margin: 20px;
     }
     .premium-title {
       font-size: 2.5em;
       color: #43a047;
       margin-bottom: 20px;
+      font-weight: bold;
     }
     .premium-description {
       font-size: 1.2em;
       color: #555;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
     .premium-features {
       text-align: left;
-      max-width: 600px;
-      margin: auto;
+      margin-bottom: 30px;
     }
     .premium-features h3 {
       font-size: 1.5em;
       color: #43a047;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
     .premium-features ul {
       list-style-type: none;
@@ -49,21 +53,31 @@
       font-size: 1.2em;
       color: #555;
       margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .premium-features ul li::before {
+      content: '✓';
+      color: #43a047;
+      margin-right: 10px;
+      font-weight: bold;
     }
     .get-premium-button {
       background-color: #007bff;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 25px;
       border: none;
       border-radius: 5px;
+      font-size: 1em;
       cursor: pointer;
       text-decoration: none;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
     .get-premium-button:hover {
       background-color: #0056b3;
+      transform: translateY(-2px);
     }
-    /* Popup container */
     .popup {
       position: fixed;
       top: 0;
@@ -75,30 +89,33 @@
       justify-content: center;
       align-items: center;
     }
-    /* Popup content */
     .popup-content {
       background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      text-align: left;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      width: 90%;
       max-width: 400px;
-      width: 100%;
+      text-align: left;
     }
     .popup-content h3 {
       margin-top: 0;
+      font-size: 1.8em;
+      color: #43a047;
     }
     .popup-content label {
       display: block;
       font-weight: bold;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
+      color: #333;
     }
     .popup-content input {
-      width: calc(100% - 22px);
+      width: calc(100% - 20px);
       padding: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       border: 1px solid #ccc;
       border-radius: 5px;
+      font-size: 1em;
     }
     .popup-content button {
       padding: 10px 20px;
@@ -108,6 +125,7 @@
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      font-size: 1em;
     }
     .popup-content button:hover {
       background-color: #2e7d32;
@@ -131,7 +149,6 @@
     <button class="get-premium-button" onclick="openPopup()">Get Premium</button>
   </div>
 
-  <!-- Popup -->
   <div class="popup" id="popup">
     <div class="popup-content">
       <h3>Enter Card Details</h3>
