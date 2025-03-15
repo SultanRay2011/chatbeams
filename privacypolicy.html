@@ -19,6 +19,7 @@
       color: white;
       padding: 20px;
       text-align: center;
+      animation: slideInDown 1s ease-out;
     }
     .content {
       flex: 1;
@@ -27,10 +28,12 @@
       margin: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1.5s ease-in-out;
     }
     .content h1 {
       color: #43a047;
       margin-bottom: 20px;
+      animation: slideInUp 1s ease-out;
     }
     .content p {
       font-size: 1.2em;
@@ -43,6 +46,7 @@
       padding: 20px;
       background-color: #43a047;
       color: white;
+      animation: slideInUp 1s ease-out;
     }
     footer a {
       color: white;
@@ -52,12 +56,24 @@
       text-decoration: underline;
     }
     @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes slideInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-    @keyframes slideIn {
+    @keyframes slideInUp {
       from {
         opacity: 0;
         transform: translateY(20px);
@@ -78,10 +94,10 @@
     <p>Welcome to Chatbeam. Your privacy is important to us. This privacy policy explains how we collect, use, and protect your personal information.</p>
     
     <h2>Information We Collect</h2>
-    <p>We collect information that you provide to us directly, such as when you create an account, send messages, or contact us for support. This information may include your name, email address, and any other details you choose to provide.</p>
+    <p>We collect information that you provide to us directly, such as when you create an account, send messages, or contact us for support. This information may include your name, email address, and other contact details.</p>
     
     <h2>How We Use Your Information</h2>
-    <p>We use your information to provide and improve our services, communicate with you, and ensure the security of our platform. We may also use your information to send you updates and promotional materials, but you can opt out of these communications at any time.</p>
+    <p>We use your information to provide and improve our services, communicate with you, and ensure the security of our platform. We may also use your information to send you updates and promotional offers.</p>
     
     <h2>Information Sharing and Disclosure</h2>
     <p>We do not share your personal information with third parties except as necessary to provide our services, comply with legal obligations, or protect our rights. We may share aggregated or anonymized data that does not identify you personally.</p>
@@ -93,7 +109,7 @@
     <p>You have the right to access, update, or delete your personal information at any time. You can do this by logging into your account or contacting us directly. You can also opt out of receiving promotional communications from us.</p>
     
     <h2>Changes to This Policy</h2>
-    <p>We may update this privacy policy from time to time. We will notify you of any significant changes by posting the new policy on our website and updating the effective date. Your continued use of Chatbeam after any changes indicates your acceptance of the new policy.</p>
+    <p>We may update this privacy policy from time to time. We will notify you of any significant changes by posting the new policy on our website and updating the effective date. Your continued use of our services after any changes signifies your acceptance of the updated policy.</p>
     
     <h2>Contact Us</h2>
     <p>If you have any questions or concerns about this privacy policy, please contact us at support@chatbeam.com.</p>
