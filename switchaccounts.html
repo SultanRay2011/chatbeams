@@ -68,19 +68,39 @@
       <button type="button" id="removeAccountButton">Remove Account</button>
     </form>
     <h2>Login to Another Account</h2>
-    <form id="addAccountForm">
-      <input type="text" id="newUsername" placeholder="Enter username" required>
-      <input type="password" id="newPassword" placeholder="Enter password" required>
+    <form id="loginForm">
+      <input type="text" id="loginUsername" placeholder="Enter username" required>
+      <input type="password" id="loginPassword" placeholder="Enter password" required>
       <div id="loginError" class="error-message">Username or password is incorrect.</div>
       <button type="submit">Login</button>
     </form>
-    <div id="accountSuccess" style="display:none;color:green;">Account added successfully.</div>
+    <div id="accountSuccess" style="display:none;color:green;">Logged in successfully.</div>
   </div>
   <script>
-    document.getElementById('addAccountForm').addEventListener('submit', function(event) {
+    const usernames = ["user1", "user2", "user3"];
+    const accountSelect = document.getElementById('accountSelect');
+
+    // Populate the account select options
+    usernames.forEach(username => {
+      const option = document.createElement('option');
+      option.value = username;
+      option.textContent = username;
+      accountSelect.appendChild(option);
+    });
+
+    // Handle switching accounts
+    document.getElementById('switchAccountForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      const username = document.getElementById('newUsername').value;
-      const password = document.getElementById('newPassword').value;
+      const selectedAccount = accountSelect.value;
+      alert('Switched to account: ' + selectedAccount);
+      // Perform switch account actions here
+    });
+
+    // Handle login to another account
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const username = document.getElementById('loginUsername').value;
+      const password = document.getElementById('loginPassword').value;
 
       // Simulate login validation
       const isValidLogin = validateLogin(username, password);
@@ -91,7 +111,7 @@
         document.getElementById('loginError').style.display = 'none';
         document.getElementById('accountSuccess').style.display = 'block';
         // Perform login actions here
-        // e.g., redirect to another page or update account list
+        // e.g., add the new account to the list and switch to it
       }
     });
 
