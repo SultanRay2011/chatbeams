@@ -199,7 +199,7 @@
   </footer>
 
   <script>
-    document.addEventListener('scroll', function() {
+    function handleScroll() {
       const sections = document.querySelectorAll('.details-section, .testimonials-section, .call-to-action');
       const scrollPosition = window.scrollY + window.innerHeight;
 
@@ -209,7 +209,13 @@
           section.style.transform = 'translateY(0)';
         }
       });
-    });
+
+      if (sections[sections.length - 1].style.opacity === '1') {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
   </script>
 </body>
 </html>
