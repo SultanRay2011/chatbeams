@@ -57,7 +57,7 @@
       align-items: center;
     }
     .premium-features ul li::before {
-      content: '•';
+      content: '✓';
       color: #43a047;
       margin-right: 10px;
       font-weight: bold;
@@ -191,9 +191,11 @@
   </div>
 
   <script>
-    // Assume we have the username stored in a variable
-    const username = "SultanRay2011"; // This should be dynamically set based on actual logged-in user
-    document.getElementById('username').textContent = username;
+    // Simulate fetching usernames from backend
+    const usernames = ["user1", "user2", "user3"];
+    const currentUserIndex = 0; // Simulate the current user index
+    const currentUser = usernames[currentUserIndex];
+    document.getElementById('username').textContent = currentUser;
 
     function openPopup() {
       document.getElementById('popup').style.display = 'flex';
