@@ -57,7 +57,7 @@
       align-items: center;
     }
     .premium-features ul li::before {
-      content: '✓';
+      content: '•';
       color: #43a047;
       margin-right: 10px;
       font-weight: bold;
@@ -139,12 +139,26 @@
       font-weight: bold;
       color: #43a047;
     }
+    .switch-account {
+      display: inline-block;
+      font-size: 0.9em;
+      color: #007bff;
+      cursor: pointer;
+      text-decoration: underline;
+      margin-left: 10px;
+    }
+    .switch-account:hover {
+      color: #0056b3;
+    }
   </style>
 </head>
 <body>
   <div class="premium-container">
     <h1 class="premium-title">Get Chatbeams Premium</h1>
-    <p class="account-info">Logged in as: <span id="username"></span></p>
+    <p class="account-info">
+      Logged in as: <span id="username"></span>
+      <span class="switch-account" onclick="switchAccount()">Not the account? Switch Accounts</span>
+    </p>
     <p class="premium-description">Upgrade to Chatbeams Premium and enjoy exclusive features designed to enhance your communication experience.</p>
     <div class="premium-features">
       <h3>Premium Features:</h3>
@@ -183,6 +197,10 @@
 
     function openPopup() {
       document.getElementById('popup').style.display = 'flex';
+    }
+
+    function switchAccount() {
+      window.location.href = 'switchaccounts.html';
     }
 
     document.getElementById('paymentForm').addEventListener('submit', function(event) {
