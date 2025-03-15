@@ -31,12 +31,10 @@
       margin-bottom: 20px;
       animation: slideIn 2s forwards 0.5s;
     }
-    .intro-container a {
+    .intro-container .btn {
       display: inline-block;
       padding: 10px 20px;
       font-size: 1em;
-      color: white;
-      background-color: #388e3c;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -45,8 +43,22 @@
       animation: slideIn 2s forwards 1s;
       margin: 5px;
     }
-    .intro-container a:hover {
-      background-color: #2e7d32;
+    .intro-container .btn-login {
+      color: #007bff;
+      background-color: white;
+      border: 2px solid #007bff;
+    }
+    .intro-container .btn-login:hover {
+      background-color: #007bff;
+      color: white;
+      transform: scale(1.05);
+    }
+    .intro-container .btn-signup {
+      color: white;
+      background-color: #43a047;
+    }
+    .intro-container .btn-signup:hover {
+      background-color: #388e3c;
       transform: scale(1.05);
     }
     .details-section {
@@ -158,8 +170,8 @@
     <h1>Welcome to chatbeams</h1>
     <p>Your ultimate platform for seamless and secure communication.</p>
     <p>Connect with friends, family, and colleagues effortlessly. Enjoy real-time messaging, secure conversations, and a user-friendly interface.</p>
-    <a href="login.html">Login</a>
-    <a href="signup.html">Signup</a>
+    <a href="login.html" class="btn btn-login">Already have an account</a>
+    <a href="signup.html" class="btn btn-signup">Get Started</a>
   </div>
 
   <div class="details-section" id="section1">
@@ -195,7 +207,7 @@
   <div class="call-to-action" id="section6">
     <h2>Join chatbeams Today</h2>
     <p>Experience the best in seamless and secure communication. Join chatbeams today and stay connected with your friends and colleagues.</p>
-    <a href="signup.html">Sign Up Now</a>
+    <a href="signup.html">Get Started</a>
   </div>
 
   <footer>
