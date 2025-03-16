@@ -33,55 +33,55 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ---------- SIGNUP FUNCTIONALITY ----------
-    if (document.getElementById("signupForm")) {
-        document.getElementById("signupForm").addEventListener("submit", function(e) {
-            e.preventDefault();
-            const username = document.getElementById("signupUsername").value.trim();
-            const displayName = document.getElementById("signupDisplayName").value.trim();
-            const email = document.getElementById("signupEmail").value.trim();
-            const password = document.getElementById("signupPassword").value;
-            const rePassword = document.getElementById("signupRePassword").value;
-            const usernameError = document.getElementById("usernameError");
-            const passwordError = document.getElementById("passwordError");
+if (document.getElementById("signupForm")) {
+    document.getElementById("signupForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const username = document.getElementById("signupUsername").value.trim();
+        const displayName = document.getElementById("signupDisplayName").value.trim();
+        const email = document.getElementById("signupEmail").value.trim();
+        const password = document.getElementById("signupPassword").value;
+        const rePassword = document.getElementById("signupRePassword").value;
+        const usernameError = document.getElementById("usernameError");
+        const passwordError = document.getElementById("passwordError");
 
-            // Clear previous error messages
-            usernameError.style.display = "none";
-            passwordError.style.display = "none";
+        // Clear previous error messages
+        usernameError.style.display = "none";
+        passwordError.style.display = "none";
 
-            // Validation checks
-            if (username === "" || displayName === "" || email === "" || password === "" || rePassword === "") {
-                showError(usernameError, "All fields are required.");
-                return;
-            }
-            if (username.length < 6) {
-                showError(usernameError, "Username must be at least 6 characters long.");
-                return;
-            }
-            if (password.length < 6) {
-                showError(passwordError, "Password must be at least 6 characters long.");
-                return;
-            }
-            if (username === displayName) {
-                showError(usernameError, "Username cannot be the same as display name.");
-                return;
-            }
-            if (password !== rePassword) {
-                showError(passwordError, "Passwords do not match.");
-                return;
-            }
+        // Validation checks
+        if (username === "" || displayName === "" || email === "" || password === "" || rePassword === "") {
+            showError(usernameError, "All fields are required.");
+            return;
+        }
+        if (username.length < 6) {
+            showError(usernameError, "Username must be at least 6 characters long.");
+            return;
+        }
+        if (password.length < 6) {
+            showError(passwordError, "Password must be at least 6 characters long.");
+            return;
+        }
+        if (username === displayName) {
+            showError(usernameError, "Username cannot be the same as display name.");
+            return;
+        }
+        if (password !== rePassword) {
+            showError(passwordError, "Passwords do not match.");
+            return;
+        }
 
-            if (users[username]) {
-                showError(usernameError, "Username already exists.");
-            } else {
-                users[username] = { displayName, email, password };
-                localStorage.setItem("users", JSON.stringify(users));
-                showSuccess(document.getElementById("signupSuccess"), "Signup successful! Please log in.");
-                setTimeout(() => {
-                    window.location.href = "login.html";
-                }, 2000);
-            }
-        });
-    }
+        if (users[username]) {
+            showError(usernameError, "Username already exists.");
+        } else {
+            users[username] = { displayName, email, password };
+            localStorage.setItem("users", JSON.stringify(users));
+            showSuccess(document.getElementById("signupSuccess"), "Signup successful! Please log in.");
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 2000);
+        }
+    });
+}
 
     // ---------- DASHBOARD FUNCTIONALITY ----------
     if (document.querySelector(".dashboard-container")) {
