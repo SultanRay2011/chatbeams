@@ -31,9 +31,11 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+//--SIGNUP FUNCTIONALITY--//
+document.addEventListener("DOMContentLoaded", function() {
+    const storedUsers = localStorage.getItem("users");
+    const users = storedUsers ? JSON.parse(storedUsers) : {};
 
-    // ---------- SIGNUP FUNCTIONALITY ----------
-if (document.getElementById("signupForm")) {
     document.getElementById("signupForm").addEventListener("submit", function(e) {
         e.preventDefault();
         const username = document.getElementById("signupUsername").value.trim();
@@ -44,44 +46,49 @@ if (document.getElementById("signupForm")) {
         const usernameError = document.getElementById("usernameError");
         const passwordError = document.getElementById("passwordError");
 
-        // Clear previous error messages
         usernameError.style.display = "none";
         passwordError.style.display = "none";
 
-        // Validation checks
-        if (username === "" || displayName === "" || email === "" || password === "" || rePassword === "") {
+        if (!username || !displayName || !email || !password || !rePassword) {
             showError(usernameError, "All fields are required.");
             return;
         }
+
         if (username.length < 6) {
             showError(usernameError, "Username must be at least 6 characters long.");
             return;
         }
+
         if (password.length < 6) {
             showError(passwordError, "Password must be at least 6 characters long.");
             return;
         }
+
         if (username === displayName) {
             showError(usernameError, "Username cannot be the same as display name.");
             return;
         }
+
         if (password !== rePassword) {
             showError(passwordError, "Passwords do not match.");
             return;
         }
 
-        if (users[username]) {
+        if (users.hasOwnProperty(username)) {
             showError(usernameError, "Username already exists.");
-        } else {
-            users[username] = { displayName, email, password };
-            localStorage.setItem("users", JSON.stringify(users));
-            showSuccess(document.getElementById("signupSuccess"), "Signup successful! Please log in.");
-            setTimeout(() => {
-                window.location.href = "login.html";
-            }, 2000);
+            return;
         }
+
+        // Save new user
+        users[username] = { displayName, email, password };
+        localStorage.setItem("users", JSON.stringify(users));
+
+        showSuccess(document.getElementById("signupSuccess"), "Signup successful! Redirecting to login...");
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 2000);
     });
-}
+});
 
     // ---------- DASHBOARD FUNCTIONALITY ----------
     if (document.querySelector(".dashboard-container")) {
