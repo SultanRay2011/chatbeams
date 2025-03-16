@@ -66,6 +66,7 @@
       </select>
       <button type="submit">Switch Account</button>
       <button type="button" id="removeAccountButton">Remove Account</button>
+      <div id="removeError" class="error-message">There must be at least one account.</div>
     </form>
     <h2>Login to Another Account</h2>
     <form id="loginForm">
@@ -77,7 +78,8 @@
     <div id="accountSuccess" style="display:none;color:green;">Logged in successfully.</div>
   </div>
   <script>
-    const usernames = ["user1", "user2", "user3"];
+    // Simulate fetching usernames from backend
+    const usernames = ["actualUsername1", "actualUsername2", "actualUsername3"]; // Replace with actual user data fetching logic
     const accountSelect = document.getElementById('accountSelect');
 
     // Populate the account select options
@@ -94,6 +96,17 @@
       const selectedAccount = accountSelect.value;
       alert('Switched to account: ' + selectedAccount);
       // Perform switch account actions here
+    });
+
+    // Handle removing accounts
+    document.getElementById('removeAccountButton').addEventListener('click', function() {
+      if (accountSelect.options.length > 1) {
+        const selectedOptionIndex = accountSelect.selectedIndex;
+        accountSelect.remove(selectedOptionIndex);
+        alert('Account removed.');
+      } else {
+        document.getElementById('removeError').style.display = 'block';
+      }
     });
 
     // Handle login to another account
