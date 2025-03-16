@@ -1,181 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Chatbeams - Dashboard</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-    }
-    .dashboard-header {
-      background-color: #43a047;
-      color: white;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .account-dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    .account-toggle {
-      cursor: pointer;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: white;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      z-index: 1;
-    }
-    .dropdown-content a {
-      color: black;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    .dropdown-content a:hover {
-      background-color: #f1f1f1;
-    }
-    .account-dropdown:hover .dropdown-content {
-      display: block;
-    }
-    .dashboard-container {
-      display: flex;
-      flex: 1;
-      overflow: hidden;
-    }
-    .sidebar {
-      background-color: #ffffff;
-      padding: 20px;
-      width: 300px;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-      overflow-y: auto;
-    }
-    .friend-header {
-      margin-bottom: 10px;
-    }
-    .no-friends {
-      color: #888;
-      font-style: italic;
-    }
-    .chat-area {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
-      background-color: #ffffff;
-    }
-    .chat-messages {
-      flex: 1;
-      overflow-y: auto;
-      margin-bottom: 20px;
-      border: 1px solid #ddd;
-      padding: 10px;
-      border-radius: 5px;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-    form input {
-      flex: 1;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin-bottom: 10px;
-    }
-    form button {
-      padding: 10px 20px;
-      background-color: #388e3c;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    form button:hover {
-      background-color: #2e7d32;
-    }
-    .error-message {
-      color: red;
-      display: none;
-      margin-top: -10px;
-      margin-bottom: 10px;
-    }
-    h3 {
-      text-align: center;
-    }
-    .get-premium-button {
-      background-color: #8B8000;
-      color: black;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Chatbeams - Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .dashboard-header {
+            background-color: #43a047;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .account-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .account-toggle {
+            cursor: pointer;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .account-dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dashboard-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        .sidebar {
+            background-color: #ffffff;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        .friend-header {
+            margin-bottom: 10px;
+        }
+        .no-friends {
+            color: #888;
+            font-style: italic;
+        }
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: #388e3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        form button:hover {
+            background-color: #2e7d32;
+        }
+        .error-message {
+            color: red;
+            display: none;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            text-align: center;
+        }
+        .get-premium-button {
+            background-color: #8B8000;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+    </style>
 </head>
 <body>
-  <header class="dashboard-header">
-    <div class="welcome-msg">
-      <span id="welcomeMessage"></span>
+    <header class="dashboard-header">
+        <div class="welcome-msg">
+            <span id="welcomeMessage"></span>
+        </div>
+        <div class="account-dropdown">
+            <span class="account-toggle">Account &#9662;</span>
+            <div class="dropdown-content">
+                <a href="settings.html">Settings</a>
+                <a href="switchaccounts.html">Switch Accounts</a>
+                <a href="feedback.html">Send Us a Feedback</a>
+                <a href="#" id="logoutBtn">Logout</a>
+            </div>
+        </div>
+        <a href="premium.html" class="get-premium-button">Get Premium</a>
+    </header>
+    
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="friend-header">
+                <h3>Pending Requests</h3>
+            </div>
+            <ul id="pendingList">
+                <!-- Pending friend requests will be injected here -->
+            </ul>
+            <div id="noPendingMessage" class="no-friends"><em>No pending requests.</em></div>
+            <hr>
+            <div class="friend-header">
+                <h3>Friends*Note: Click on Username again to see latest sent messages*</h3>
+            </div>
+            <ul id="friendList">
+                <!-- Accepted friend list items will be injected here -->
+            </ul>
+            <div id="noFriendsMessage" class="no-friends"><em>Looks like you have no friends.</em></div>
+            <form id="addFriendForm">
+                <input type="text" id="friendName" placeholder="Enter friend username" required>
+                <button type="submit">Add Friend</button>
+                <div id="friendError" class="error-message">Username does not exist.</div>
+            </form>
+        </aside>
+        <main class="chat-area">
+            <h3 id="chatHeader">Select a friend to chat</h3>
+            <div id="chatMessages" class="chat-messages">
+                <!-- Chat messages will appear here -->
+            </div>
+            <form id="messageForm">
+                <input type="text" id="messageInput" placeholder="Type your message" required>
+                <button type="submit">Send</button>
+            </form>
+        </main>
     </div>
-    <div class="account-dropdown">
-      <span class="account-toggle">Account &#9662;</span>
-      <div class="dropdown-content">
-        <a href="settings.html">Settings</a>
-        <a href="switchaccounts.html">Switch Accounts</a>
-        <a href="#" id="logoutBtn">Logout</a>
-      </div>
-    </div>
-    <a href="premium.html" class="get-premium-button">Get Premium</a>
-  </header>
-  
-  <div class="dashboard-container">
-    <aside class="sidebar">
-      <div class="friend-header">
-        <h3>Pending Requests</h3>
-      </div>
-      <ul id="pendingList">
-        <!-- Pending friend requests will be injected here -->
-      </ul>
-      <div id="noPendingMessage" class="no-friends"><em>No pending requests.</em></div>
-      <hr>
-      <div class="friend-header">
-        <h3>Friends*Note: Click on Username again to see latest sent messages*</h3>
-      </div>
-      <ul id="friendList">
-        <!-- Accepted friend list items will be injected here -->
-      </ul>
-      <div id="noFriendsMessage" class="no-friends"><em>Looks like you have no friends.</em></div>
-      <form id="addFriendForm">
-        <input type="text" id="friendName" placeholder="Enter friend username" required>
-        <button type="submit">Add Friend</button>
-        <div id="friendError" class="error-message">Username does not exist.</div>
-      </form>
-    </aside>
-    <main class="chat-area">
-      <h3 id="chatHeader">Select a friend to chat</h3>
-      <div id="chatMessages" class="chat-messages">
-        <!-- Chat messages will appear here -->
-      </div>
-      <form id="messageForm">
-        <input type="text" id="messageInput" placeholder="Type your message" required>
-        <button type="submit">Send</button>
-      </form>
-    </main>
-  </div>
-  <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add JavaScript code here if needed
+        });
+    </script>
 </body>
 </html>
