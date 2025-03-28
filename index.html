@@ -26,10 +26,9 @@
             padding: 10px 20px;
             transition: top 0.3s ease-in-out;
         }
-        header nav a {
-            color: #fff;
-            margin: 0 10px;
-            text-decoration: none;
+        header .brand {
+            font-size: 1.5em;
+            font-weight: bold;
         }
         header .auth-buttons button {
             background: transparent;
@@ -79,11 +78,7 @@
 <body>
 
 <header id="header">
-    <nav>
-        <a href="#intro">Introduction</a>
-        <a href="#features">Features</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <div class="brand">ChatBeams</div>
     <div class="auth-buttons">
         <button onclick="location.href='login.html'">Login</button>
         <button onclick="location.href='signup.html'">Signup</button>
