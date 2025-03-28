@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBeams</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: green;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            top: -60px;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            transition: top 0.3s ease-in-out;
+        }
+        header nav a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        header .auth-buttons button {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 5px 10px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        section {
+            padding: 100px 20px;
+            min-height: 100vh;
+        }
+        #intro {
+            background: #f4f4f4;
+        }
+        #features {
+            background: #ddd;
+        }
+        #contact {
+            background: #bbb;
+        }
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .content {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header id="header">
+    <nav>
+        <a href="#intro">Introduction</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="auth-buttons">
+        <button onclick="location.href='login.html'">Login</button>
+        <button onclick="location.href='signup.html'">Signup</button>
+    </div>
+</header>
+
+<section id="intro">
+    <div class="content">
+        <h1 class="section-title">Welcome to ChatBeams</h1>
+        <p>ChatBeams is an innovative platform designed to revolutionize the way you communicate. Our smooth animations and seamless user experience will make your conversations more engaging and enjoyable.</p>
+    </div>
+</section>
+
+<section id="features">
+    <div class="content">
+        <h2 class="section-title">Features</h2>
+        <p>ChatBeams offers a variety of features including real-time messaging, multimedia sharing, and customizable chat rooms. Explore the endless possibilities with ChatBeams!</p>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="content">
+        <h2 class="section-title">Contact Us</h2>
+        <p>Have any questions or feedback? Reach out to us at contact@chatbeams.com. We would love to hear from you!</p>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 ChatBeams. All rights reserved.</p>
+</footer>
+
+<script>
+    const sections = document.querySelectorAll('.content');
+    const header = document.getElementById('header');
+
+    const options = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, options);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down
+            header.style.top = '0';
+        } else {
+            // Scrolling up
+            header.style.top = '-60px';
+        }
+        lastScrollTop = scrollTop;
+    });
+</script>
+
+</body>
+</html>
